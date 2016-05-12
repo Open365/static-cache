@@ -1,0 +1,55 @@
+################################################################################
+## ENTRY POINT, it's a nginx which proxies to other internal services ##########
+################################################################################
+proxy:
+  image: docker-registry.eyeosbcn.com/eyeos-proxy:latest
+  net: "host"
+  dns: "127.0.0.1"
+  privileged: true
+  environment:
+    - EYEOS_DEVELOPMENT_MODE=false
+
+
+################################################################################
+# DESKTOP ######################################################################
+################################################################################
+staticCache:
+  image: docker-registry.eyeosbcn.com/eyeos-static-cache:latest
+  net: "host"
+  dns: "127.0.0.1"
+  environment:
+      - EYEOS_DEVELOPMENT_MODE=false
+
+################################################################################
+## SYSTEM DEPENDENCIES #########################################################
+################################################################################
+redis:
+  image: docker-registry.eyeosbcn.com/redis-discovery
+  net: "host"
+  dns: "127.0.0.1"
+  environment:
+      - EYEOS_DEVELOPMENT_MODE=false
+
+################################################################################
+## BUS TO HTTP #################################################################
+################################################################################
+httpToBus:
+  image: docker-registry.eyeosbcn.com/eyeos-httptobusserver:latest
+  net: "host"
+  privileged: true
+  dns: "127.0.0.1"
+  environment:
+      - EYEOS_DEVELOPMENT_MODE=false
+
+################################################################################
+## OTHER SERVICES ##############################################################
+################################################################################
+
+rabbitmq:
+  image: docker-registry.eyeosbcn.com/docker-rabbitmq:latest
+  net: "host"
+  dns: "127.0.0.1"
+  environment:
+      - EYEOS_DEVELOPMENT_MODE=false
+
+

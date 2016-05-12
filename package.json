@@ -1,0 +1,33 @@
+{
+  "name": "static-cache",
+  "version": "0.0.159",
+  "description": "static cache server",
+  "author": "eyeOS",
+  "homepage": "http://www.eyeos.com",
+  "main": "eyeos-static-cache.js",
+  "dependencies": {
+    "eyeos-route-manager": "*",
+    "eyeos-service-ready-notify": "*",
+    "log2out": "*",
+    "redis": "0.10.1",
+    "restify": "2.8.1"
+  },
+  "devDependencies": {
+    "eyeos-gruntfile": "*",
+    "mocha": "2.1.0",
+    "chai": "1.10.0",
+    "sinon": "1.12.2",
+    "grunt": "0.4.5",
+    "grunt-npm": "0.0.2",
+    "grunt-cli": "0.1.9",
+    "grunt-init": "0.2.1",
+    "grunt-shell": "0.7.0",
+    "grunt-mocha-test": "0.11.0",
+    "eyeos-hippie": "*",
+    "eyeos-component-tests": "*"
+  },
+  "microservices": [
+    "redis.service.consul:6379"
+  ],
+  "license": "AGPL-3.0"
+}

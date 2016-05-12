@@ -1,0 +1,19 @@
+name: "static-cache chaos plan"
+scenarios:
+ - simpleFuck:
+    containers:
+        - staticCache: 0
+ - scaleFuck:
+    containers:
+        - staticCache: 5
+ - noRedis:
+    containers:
+        - redis: 0
+ - noRabbit:
+    containers:
+        - rabbitmq: 0
+ - alloff:
+    containers:
+        - staticCache: 0
+        - redis: 0
+        - rabbitmq: 0
