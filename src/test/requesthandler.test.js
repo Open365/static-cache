@@ -99,11 +99,6 @@ suite('RequestHandler Suite', function () {
             callbackHeadExpectationNoData = mock.expects('writeHead').once().withExactArgs(204);
         });
 
-        test('calls res.write with right params', function() {
-            this.sut.blobObtainedFromPersistenceCallback(res, data);
-            callbackExpectation.verify();
-        });
-
         test('calls res.writehead with right params', function() {
             this.sut.blobObtainedFromPersistenceCallback(res, data);
             callbackHeadExpectation.verify();
